@@ -84,7 +84,7 @@ class Fact extends React.Component {
 		fetch('https://still-dawn-36166.herokuapp.com/facts', requestOptions)
 			.then(response => response.json())
 			.then(data => alert("Ok!"));
-		this.setState({fact: '', name: ''})
+		this.setState({fact: ''})
 		event.preventDefault();
 	}
   

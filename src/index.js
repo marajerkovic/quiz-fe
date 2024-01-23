@@ -14,7 +14,7 @@ class Quiz extends Component {
 	  }
 
 	getQuestion = () => {
-		fetch('https://still-dawn-36166.herokuapp.com/admin/questions', {mode: 'cors'})
+		fetch('https://quiz-be-n5il.onrender.com/admin/questions', {mode: 'cors'})
 			.then(response => response.json())
 			.then(data => this.setState({question: 
 				{questionText: data.fact, 
@@ -81,7 +81,7 @@ class Fact extends React.Component {
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({fact: this.state.fact, owner: this.state.name})
 		};
-		fetch('https://still-dawn-36166.herokuapp.com/facts', requestOptions)
+		fetch('https://quiz-be-n5il.onrender.com/facts', requestOptions)
 			.then(response => response.json())
 			.then(data => alert("Ok!"));
 		this.setState({fact: ''})

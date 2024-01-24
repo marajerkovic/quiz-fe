@@ -61,7 +61,7 @@ class Quiz extends Component {
 class Fact extends React.Component {
 	constructor(props) {
 	  super(props);
-	  this.state = {fact: '', name: ''};
+	  this.state = {fact: '', name: '', disabled: false};
   
 	  this.handleNameChange = this.handleNameChange.bind(this);
 	  this.handleFactChange = this.handleFactChange.bind(this);
@@ -84,7 +84,7 @@ class Fact extends React.Component {
 		fetch('https://quiz-be-n5il.onrender.com/facts', requestOptions)
 			.then(response => response.json())
 			.then(data => alert("Ok!"));
-		this.setState({fact: ''})
+		this.setState({fact: '', disabled: true})
 		event.preventDefault();
 	}
   
@@ -94,7 +94,7 @@ class Fact extends React.Component {
 		<form onSubmit={this.handleSubmit}>
 		  <div className="question-text">
 			Tu nombre: <br></br>
-			<input className="fact-form" type="text" value={this.state.name} onChange={this.handleNameChange} />
+			<input className="fact-form" type="text" value={this.state.name} onChange={this.handleNameChange} disabled={(this.state.disabled)? "disabled" : ""}/>
 		  </div>
 		  <div className="question-text">
 			Contanos algo sobre vos! <br></br>
